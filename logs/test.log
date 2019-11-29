@@ -8,3 +8,9 @@
 2019-11-29 10:10:17 [Debug] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Debug:80 a debug log [123] 
 2019-11-29 10:10:17 [Trace] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Trace:87 a trace log 81
 2019-11-29 10:10:17 [Info] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Info:94 a Info log 887
+2019-11-29 13:08:50 [Debug] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Debug:80 a debug log [123] 
+2019-11-29 13:08:50 [Trace] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Trace:87 a trace log 81
+2019-11-29 13:08:50 [Info] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Info:94 a Info log 887
+2019-11-29 14:00:47 [Debug] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Debug:99 a debug log [123] 
+2019-11-29 14:00:47 [Trace] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Trace:106 a trace log 81
+2019-11-29 14:00:47 [Info] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Info:113 a Info log 887

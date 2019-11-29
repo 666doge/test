@@ -1,14 +1,8 @@
 package main
 import (
-	// "./logger"
+	"test/logger"
 	// "net/http"
 )
-
-// const (
-// 	a int = 1
-// 	b
-// 	c
-// )
 
 
 // func isZhiShu(n int) bool {
@@ -39,6 +33,12 @@ import (
 // }
 
 func main() {
+	logger.InitLogger("file", map[string]string {
+		"log_level": "debug",
+		"log_path": "/Users/xushengnan02/go/src/test/logs",
+		"log_name": "main",
+	})
+	logger.Debug("this is a dog called %s", "AChai")
 	// testLogger()
 	// test()
 	// fmt.Println(a, b, c)

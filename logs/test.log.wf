@@ -8,3 +8,9 @@
 2019-11-29 10:10:17 [Warn] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Warn:101 a warn log 诶呦
 2019-11-29 10:10:17 [Error] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Error:108 a error log 哇哦
 2019-11-29 10:10:17 [Fatal] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Fatal:115 a fatal log 挂喽
+2019-11-29 13:08:50 [Warn] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Warn:101 a warn log 诶呦
+2019-11-29 13:08:50 [Error] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Error:108 a error log 哇哦
+2019-11-29 13:08:50 [Fatal] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Fatal:115 a fatal log 挂喽
+2019-11-29 14:00:47 [Warn] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Warn:120 a warn log 诶呦
+2019-11-29 14:00:47 [Error] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Error:127 a error log 哇哦
+2019-11-29 14:00:47 [Fatal] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Fatal:134 a fatal log 挂喽

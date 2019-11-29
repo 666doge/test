@@ -1,0 +1,5 @@
+2019-11-29 14:26:11 [Debug] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Debug:99 this is a dog called AChai
+2019-11-29 14:26:29 [Debug] /Users/xushengnan02/go/src/test/logger/logger.go test/logger.Debug:21 this is a dog called AChai
+2019-11-29 14:28:44 [Debug] /Users/xushengnan02/go/src/test/main.go main.main:41 this is a dog called AChai
+2019-11-29 20:23:06 [Debug] /Users/xushengnan02/go/src/test/main.go main.main:41 this is a dog called AChai
+2019-11-29 20:23:32 [Debug] /Users/xushengnan02/go/src/test/main.go main.main:41 this is a dog called AChai

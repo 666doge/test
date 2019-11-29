@@ -14,18 +14,37 @@ type FileLogger struct {
 	warnFile *os.File
 }
 
-func NewFileLogger (level int, logPath string, logName string) *FileLogger {
-	logger := &FileLogger{
+func NewFileLogger (config map[string]string) (logger LogInterface, err error) {
+	logLevel, ok := config["log_level"]
+	if !ok {
+		err = fmt.Errorf("config not found : log_level")
+		return
+	}
+
+	logPath, ok := config["log_path"]
+	if !ok {
+		err = fmt.Errorf("config not found : log_path")
+		return
+	}
+
+	logName, ok := config["log_name"]
+	if !ok {
+		err = fmt.Errorf("config not found : log_name")
+		return
+	}
+
+	level := GetLogLevel(logLevel)
+	logger = &FileLogger{
 		level: level,
 		logPath: logPath,
 		logName: logName,
 	}
 
-	logger.init()
-	return logger
+	logger.Init()
+	return
 }
 
-func (f *FileLogger) init(){
+func (f *FileLogger) Init(){
 	// debug, trace, info 共用一个文件
 	filename := fmt.Sprintf("%s/%s.log", f.logPath, f.logName)
 	file, err := os.OpenFile(filename, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0755)
