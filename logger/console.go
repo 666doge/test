@@ -36,42 +36,48 @@ func (c *ConsoleLogger) Debug(format string, args ...interface{}) {
 	if c.level > LogLevelDebug {
 		return
 	}
-	WriteLog(os.Stdout, LogLevelDebug, format, args...)
+	logInfo := GetlogInfo(LogLevelDebug, format, args...)
+	fmt.Fprint(os.Stdout, logInfo.LogMsg)
 }
 
 func (c *ConsoleLogger) Trace(format string, args ...interface{}) {
 	if c.level > LogLevelTrace {
 		return
 	}
-	WriteLog(os.Stdout, LogLevelTrace, format, args...)
+	logInfo := GetlogInfo(LogLevelTrace, format, args...)
+	fmt.Fprint(os.Stdout, logInfo.LogMsg)
 }
 
 func (c *ConsoleLogger) Info(format string, args ...interface{}) {
 	if c.level > LogLevelInfo {
 		return
 	}
-	WriteLog(os.Stdout, LogLevelInfo, format, args...)
+	logInfo := GetlogInfo(LogLevelInfo, format, args...)
+	fmt.Fprint(os.Stdout, logInfo.LogMsg)
 }
 
 func (c *ConsoleLogger) Warn(format string, args ...interface{}) {
 	if c.level > LogLevelWarn {
 		return
 	}
-	WriteLog(os.Stdout, LogLevelWarn, format, args...)
+	logInfo := GetlogInfo(LogLevelWarn, format, args...)
+	fmt.Fprint(os.Stdout, logInfo.LogMsg)
 }
 
 func (c *ConsoleLogger) Error(format string, args ...interface{}) {
 	if c.level > LogLevelError {
 		return
 	}
-	WriteLog(os.Stdout, LogLevelError, format, args...)
+	logInfo := GetlogInfo(LogLevelError, format, args...)
+	fmt.Fprint(os.Stdout, logInfo.LogMsg)
 }
 
 func (c *ConsoleLogger) Fatal(format string, args ...interface{}) {
 	if c.level > LogLevelFatal {
 		return
 	}
-	WriteLog(os.Stdout, LogLevelFatal, format, args...)
+	logInfo := GetlogInfo(LogLevelFatal, format, args...)
+	fmt.Fprint(os.Stdout, logInfo.LogMsg)
 }
 
 func (c *ConsoleLogger) Close() {

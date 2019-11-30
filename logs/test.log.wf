@@ -14,3 +14,8 @@
 2019-11-29 14:00:47 [Warn] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Warn:120 a warn log 诶呦
 2019-11-29 14:00:47 [Error] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Error:127 a error log 哇哦
 2019-11-29 14:00:47 [Fatal] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Fatal:134 a fatal log 挂喽
+2019-11-30 07:35:03 [Warn] /usr/local/go/src/testing/testing.go testing.tRunner:865 a warn log 诶呦
+2019-11-30 07:35:03 [Error] /usr/local/go/src/testing/testing.go testing.tRunner:865 a error log 哇哦
+2019-11-30 07:35:03 [Fatal] /usr/local/go/src/testing/testing.go testing.tRunner:865 a fatal log 挂喽
+2019-11-30 10:23:13 [Warn] /usr/local/go/src/testing/testing.go testing.tRunner:865 a warn log 诶呦
+2019-11-30 10:23:33 [Warn] /usr/local/go/src/testing/testing.go testing.tRunner:865 a warn log 诶呦

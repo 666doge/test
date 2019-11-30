@@ -3,7 +3,6 @@ package logger
 import (
 	"os"
 	"fmt"
-	"time"
 )
 
 type FileLogger struct {
@@ -12,6 +11,7 @@ type FileLogger struct {
 	logName string
 	file *os.File
 	warnFile *os.File
+	LogInfoChan chan *LogInfo
 }
 
 func NewFileLogger (config map[string]string) (logger LogInterface, err error) {
@@ -38,6 +38,7 @@ func NewFileLogger (config map[string]string) (logger LogInterface, err error) {
 		level: level,
 		logPath: logPath,
 		logName: logName,
+		LogInfoChan: make(chan *LogInfo, 500),
 	}
 
 	logger.Init()
@@ -60,6 +61,20 @@ func (f *FileLogger) Init(){
 		panic(fmt.Sprintf("open file %s failed, err: %v", filename, err))
 	}
 	f.warnFile = file
+
+	go f.writeLog()
+}
+
+func (f *FileLogger) writeLog() {
+	for logInfo := range f.LogInfoChan {
+		var file *os.File
+		if logInfo.IsWarn {
+			file = f.warnFile
+		} else {
+			file = f.file
+		}
+		fmt.Fprintf(file, logInfo.LogMsg)
+	}
 }
 
 func (f *FileLogger) SetLevel(level int) {
@@ -70,68 +85,75 @@ func (f *FileLogger) SetLevel(level int) {
 	f.level = level
 }
 
-func (f *FileLogger) writeLog(level int, format string, args ...interface{}) {
-	var file *os.File
-	if (level >= LogLevelWarn){
-		file = f.warnFile
-	} else {
-		file = f.file
-	}
-	nowString := time.Now().Format("2006-01-02 15:04:05")
-	fileName, funcName, lineNo := GetLineInfo()
-
-	fmt.Fprintf(
-		file, "%s [%s] %s %s:%d ",
-		nowString,
-		LogLevelText(level),
-		fileName,
-		funcName,
-		lineNo,
-	)
-	fmt.Fprintf(file, format, args...)
-	fmt.Fprintln(file)
-}
-
 func (f *FileLogger) Debug(format string, args ...interface{}) {
 	if f.level > LogLevelDebug {
 		return
 	}
-	f.writeLog(LogLevelDebug, format, args...)
+	logInfo := GetlogInfo(LogLevelDebug, format, args...)
+	select {
+	case f.LogInfoChan <- logInfo:
+	default:
+	}
 }
 
 func (f *FileLogger) Trace(format string, args ...interface{}) {
 	if f.level > LogLevelTrace {
 		return
 	}
-	f.writeLog(LogLevelTrace, format, args...)
+	logInfo := GetlogInfo(LogLevelTrace, format, args...)
+	
+	select {
+	case f.LogInfoChan <- logInfo:
+	default:
+	}
 }
 
 func (f *FileLogger) Info(format string, args ...interface{}) {
 	if f.level > LogLevelInfo {
 		return
 	}
-	f.writeLog(LogLevelInfo, format, args...)
+	logInfo := GetlogInfo(LogLevelInfo, format, args...)
+	
+	select {
+	case f.LogInfoChan <- logInfo:
+	default:
+	}
 }
 
 func (f *FileLogger) Warn(format string, args ...interface{}) {
 	if f.level > LogLevelWarn {
 		return
 	}
-	f.writeLog(LogLevelWarn, format, args...)
+	logInfo := GetlogInfo(LogLevelWarn, format, args...)
+	
+	select {
+	case f.LogInfoChan <- logInfo:
+	default:
+	}
 }
 
 func (f *FileLogger) Error(format string, args ...interface{}) {
 	if f.level > LogLevelError {
 		return
 	}
-	f.writeLog(LogLevelError, format, args...)
+	logInfo := GetlogInfo(LogLevelError, format, args...)
+	
+	select {
+	case f.LogInfoChan <- logInfo:
+	default:
+	}
 }
 
 func (f *FileLogger) Fatal(format string, args ...interface{}) {
 	if f.level > LogLevelFatal {
 		return
 	}
-	f.writeLog(LogLevelFatal, format, args...)
+	logInfo := GetlogInfo(LogLevelFatal, format, args...)
+	
+	select {
+	case f.LogInfoChan <- logInfo:
+	default:
+	}
 }
 
 func (f *FileLogger) Close() {

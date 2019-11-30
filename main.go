@@ -1,49 +1,20 @@
 package main
 import (
 	"test/logger"
+	"time"
+	"test/utils"
 	// "net/http"
 )
-
-
-// func isZhiShu(n int) bool {
-// 	if n <= 1 {
-// 		return true
-// 	}
-// 	for i := 2; i < n; i++ {
-// 		if n % i == 0 {
-// 			return false;
-// 		}
-// 	}
-// 	return true
-// }
-
-// func test(){
-// 	for i := 1; i < 100; i++ {
-// 		if isZhiShu(i) == true {
-// 			fmt.Println(i)
-// 		}
-// 	}
-// }
-
-// func testLogger() {
-// 	logger := logger.NewFileLogger(0, "/Users/xushengnan/go/src/test/logs", "access")
-// 	logger.SetLevel(3)
-// 	logger.Debug("this is %s", "a debug log")
-// 	logger.Warn("this is %s", "a warn log")
-// }
 
 func main() {
 	logger.InitLogger("file", map[string]string {
 		"log_level": "debug",
-		"log_path": "/Users/xushengnan02/go/src/test/logs",
+		"log_path": utils.GetGopath() + "/src/test/logs",
 		"log_name": "main",
 	})
-	logger.Debug("this is a dog called %s", "AChai")
-	// testLogger()
-	// test()
-	// fmt.Println(a, b, c)
-	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-	// 	fmt.Println("123")
-	// })
-	// http.ListenAndServe(":3000", nil)
+	logger.Debug("this is a debug log called %s", "AChai")
+	logger.Info("this is a info log called %s", "AChai")
+	logger.Warn("this is a warn log called %s", "AChai")
+	logger.Error("this is a error log called %s", "AChai")
+	time.Sleep(1 * time.Second)
 }

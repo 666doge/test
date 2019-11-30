@@ -14,3 +14,7 @@
 2019-11-29 14:00:47 [Debug] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Debug:99 a debug log [123] 
 2019-11-29 14:00:47 [Trace] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Trace:106 a trace log 81
 2019-11-29 14:00:47 [Info] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Info:113 a Info log 887
+2019-11-30 07:35:03 [Debug] /usr/local/go/src/testing/testing.go testing.tRunner:865 a debug log [123] 
+2019-11-30 07:35:03 [Trace] /usr/local/go/src/testing/testing.go testing.tRunner:865 a trace log 81
+2019-11-30 07:35:03 [Info] /usr/local/go/src/testing/testing.go testing.tRunner:865 a Info log 887
+2019-11-30 10:26:05 [Debug] /usr/local/go/src/testing/testing.go testing.tRunner:865 a debug log [123] 

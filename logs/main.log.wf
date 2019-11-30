@@ -1,0 +1,13 @@
+2019-11-30 08:22:10 [Error] /Users/xushengnan/go/src/test/main.go main.main:15 this is a error log called AChai
+2019-11-30 10:07:54 [Warn] /Users/xushengnan/go/src/test/main.go main.main:16 this is a warn log called AChai
+2019-11-30 10:07:54 [Error] /Users/xushengnan/go/src/test/main.go main.main:17 this is a error log called AChai
+2019-11-30 10:09:29 [Warn] /Users/xushengnan/go/src/test/main.go main.main:16 this is a warn log called AChai
+2019-11-30 10:09:29 [Error] /Users/xushengnan/go/src/test/main.go main.main:17 this is a error log called AChai
+2019-11-30 10:14:05 [Warn] /Users/xushengnan/go/src/test/main.go main.main:16 this is a warn log called AChai
+2019-11-30 10:14:05 [Error] /Users/xushengnan/go/src/test/main.go main.main:17 this is a error log called AChai
+2019-11-30 10:20:25 [Warn] /Users/xushengnan/go/src/test/main.go main.main:17 this is a warn log called AChai
+2019-11-30 10:20:25 [Error] /Users/xushengnan/go/src/test/main.go main.main:18 this is a error log called AChai
+2019-11-30 10:23:42 [Warn] /Users/xushengnan/go/src/test/main.go main.main:17 this is a warn log called AChai
+2019-11-30 10:23:42 [Error] /Users/xushengnan/go/src/test/main.go main.main:18 this is a error log called AChai
+2019-11-30 10:30:22 [Warn] /Users/xushengnan/go/src/test/main.go main.main:17 this is a warn log called AChai
+2019-11-30 10:30:22 [Error] /Users/xushengnan/go/src/test/main.go main.main:18 this is a error log called AChai
