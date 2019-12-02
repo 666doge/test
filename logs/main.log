@@ -1,27 +1,8 @@
-2019-11-29 14:26:11 [Debug] /Users/xushengnan02/go/src/test/logger/file.go test/logger.(*FileLogger).Debug:99 this is a dog called AChai
-2019-11-29 14:26:29 [Debug] /Users/xushengnan02/go/src/test/logger/logger.go test/logger.Debug:21 this is a dog called AChai
-2019-11-29 14:28:44 [Debug] /Users/xushengnan02/go/src/test/main.go main.main:41 this is a dog called AChai
-2019-11-29 20:23:06 [Debug] /Users/xushengnan02/go/src/test/main.go main.main:41 this is a dog called AChai
-2019-11-29 20:23:32 [Debug] /Users/xushengnan02/go/src/test/main.go main.main:41 this is a dog called AChai
-2019-11-30 07:38:25 [Debug] /Users/xushengnan/go/src/test/main.go main.main:45 this is a dog called AChai
-2019-11-30 07:38:47 [Debug] /Users/xushengnan/go/src/test/main.go main.main:46 this is a dog called AChai
-2019-11-30 07:39:07 [Debug] /Users/xushengnan/go/src/test/main.go main.main:46 this is a dog called AChai
-2019-11-30 07:39:41 [Debug] /Users/xushengnan/go/src/test/main.go main.main:47 this is a dog called AChai
-2019-11-30 07:42:11 [Debug] /Users/xushengnan/go/src/test/main.go main.main:48 this is a dog called AChai
-2019-11-30 07:58:15 [Debug] /Users/xushengnan/go/src/test/main.go main.main:49 this is a dog called AChai
-2019-11-30 07:58:45 [Debug] /Users/xushengnan/go/src/test/main.go main.main:49 this is a dog called AChai
-2019-11-30 08:06:22 [Debug] /Users/xushengnan/go/src/test/main.go main.main:14 this is a dog called AChai
-2019-11-30 08:22:10 [Debug] /Users/xushengnan/go/src/test/main.go main.main:13 this is a debug log called AChai
-2019-11-30 08:22:10 [Info] /Users/xushengnan/go/src/test/main.go main.main:14 this is a debug log called AChai
-2019-11-30 10:07:54 [Debug] /Users/xushengnan/go/src/test/main.go main.main:14 this is a debug log called AChai
-2019-11-30 10:07:54 [Info] /Users/xushengnan/go/src/test/main.go main.main:15 this is a debug log called AChai
-2019-11-30 10:09:29 [Debug] /Users/xushengnan/go/src/test/main.go main.main:14 this is a debug log called AChai
-2019-11-30 10:09:29 [Info] /Users/xushengnan/go/src/test/main.go main.main:15 this is a info log called AChai
-2019-11-30 10:14:05 [Debug] /Users/xushengnan/go/src/test/main.go main.main:14 this is a debug log called AChai
-2019-11-30 10:14:05 [Info] /Users/xushengnan/go/src/test/main.go main.main:15 this is a info log called AChai
-2019-11-30 10:20:25 [Debug] /Users/xushengnan/go/src/test/main.go main.main:15 this is a debug log called AChai
-2019-11-30 10:20:25 [Info] /Users/xushengnan/go/src/test/main.go main.main:16 this is a info log called AChai
-2019-11-30 10:23:42 [Debug] /Users/xushengnan/go/src/test/main.go main.main:15 this is a debug log called AChai
-2019-11-30 10:23:42 [Info] /Users/xushengnan/go/src/test/main.go main.main:16 this is a info log called AChai
-2019-11-30 10:30:22 [Debug] /Users/xushengnan/go/src/test/main.go main.main:15 this is a debug log called AChai
-2019-11-30 10:30:22 [Info] /Users/xushengnan/go/src/test/main.go main.main:16 this is a info log called AChai
+2019-12-03 07:09:41 [Info] /Users/xushengnan/go/src/test/main.go main.main:19 this is a info log called AChai
+2019-12-03 07:09:41 [Trace] /Users/xushengnan/go/src/test/main.go main.main:20 this is a trace log called AChai
+2019-12-03 07:09:42 [Debug] /Users/xushengnan/go/src/test/main.go main.main:18 this is a debug log called AChai
+2019-12-03 07:09:42 [Info] /Users/xushengnan/go/src/test/main.go main.main:19 this is a info log called AChai
+2019-12-03 07:09:42 [Trace] /Users/xushengnan/go/src/test/main.go main.main:20 this is a trace log called AChai
+2019-12-03 07:09:43 [Debug] /Users/xushengnan/go/src/test/main.go main.main:18 this is a debug log called AChai
+2019-12-03 07:09:43 [Info] /Users/xushengnan/go/src/test/main.go main.main:19 this is a info log called AChai
+2019-12-03 07:09:43 [Trace] /Users/xushengnan/go/src/test/main.go main.main:20 this is a trace log called AChai

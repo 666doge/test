@@ -3,6 +3,9 @@ package logger
 import (
 	"os"
 	"fmt"
+	"time"
+	"strconv"
+	"strings"
 )
 
 type FileLogger struct {
@@ -12,6 +15,9 @@ type FileLogger struct {
 	file *os.File
 	warnFile *os.File
 	LogInfoChan chan *LogInfo
+	logSplitType int
+	logSplitSize int64
+	lastSplitHour int
 }
 
 func NewFileLogger (config map[string]string) (logger LogInterface, err error) {
@@ -33,12 +39,34 @@ func NewFileLogger (config map[string]string) (logger LogInterface, err error) {
 		return
 	}
 
+	// 日志切分相关信息 - 按小时切分， 按文件大小切分
+	logSplitTypeStr, ok := config["log_split_type"]
+	var logSplitType int = LogSplitByHour
+	var logSplitSize int64 = 104857600 // 默认大小为100M
+	if ok {
+		if logSplitTypeStr == "size" {
+			logSplitType = LogSplitBySize
+			logSplitSizeStr, ok := config["log_split_size"]
+			if ok {
+				size, err := strconv.ParseInt(logSplitSizeStr, 10, 64)
+				if err == nil {
+					logSplitSize = size
+				}
+			}
+		} else if logSplitTypeStr == "hour" {
+			logSplitType = LogSplitByHour
+		}
+	}
+
 	level := GetLogLevel(logLevel)
 	logger = &FileLogger{
 		level: level,
 		logPath: logPath,
 		logName: logName,
 		LogInfoChan: make(chan *LogInfo, 500),
+		logSplitType: logSplitType,
+		logSplitSize: logSplitSize,
+		lastSplitHour: time.Now().Hour(),
 	}
 
 	logger.Init()
@@ -67,13 +95,49 @@ func (f *FileLogger) Init(){
 
 func (f *FileLogger) writeLog() {
 	for logInfo := range f.LogInfoChan {
-		var file *os.File
 		if logInfo.IsWarn {
-			file = f.warnFile
+			if f.needSplitFile(f.warnFile) {
+				f.splitFile(f.warnFile)
+			}
+			fmt.Fprintf(f.warnFile, logInfo.LogMsg)
 		} else {
-			file = f.file
+			if f.needSplitFile(f.file) {
+				f.splitFile(f.file)
+			}
+			fmt.Fprintf(f.file, logInfo.LogMsg)
 		}
-		fmt.Fprintf(file, logInfo.LogMsg)
+	}
+}
+
+func (f *FileLogger) needSplitFile(file *os.File) (needSplit bool) {
+	if f.logSplitType == LogSplitByHour {
+		nowHour := time.Now().Hour()
+		needSplit = f.lastSplitHour != nowHour
+		if needSplit {
+			f.lastSplitHour = nowHour
+		}
+	} else if f.logSplitType == LogSplitBySize {
+		fileInfo, _ := file.Stat()
+		needSplit = fileInfo.Size() >= f.logSplitSize
+	}
+	return
+}
+
+func (f *FileLogger) splitFile(file *os.File) {
+	fileInfo, _ := file.Stat()
+	fileName := fmt.Sprintf("%s/%s", f.logPath, fileInfo.Name())
+	nowStr := time.Now().Format("2006_01_02_15:04:05")
+	backupFileName := fmt.Sprintf("%s_%s",fileName, nowStr)
+
+	file.Close()
+	os.Rename(fileName, backupFileName)
+
+	file, _ = os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0755)
+
+	if strings.Contains(fileName, "wf") {
+		f.warnFile = file
+	} else {
+		f.file = file
 	}
 }
 
